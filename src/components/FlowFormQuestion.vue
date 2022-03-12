@@ -111,6 +111,7 @@
   import FlowFormSectionBreakType from './QuestionTypes/SectionBreakType.vue'
   import FlowFormTextType from './QuestionTypes/TextType.vue'
   import FlowFormUrlType from './QuestionTypes/UrlType.vue'
+  import FlowFormDateTimeType from './QuestionTypes/DateTimeType.vue'
   import FlowFormDateType from './QuestionTypes/DateType.vue'
   import FlowFormFileType from './QuestionTypes/FileType.vue'
   import FlowFormMatrixType from './QuestionTypes/MatrixType.vue'
@@ -121,6 +122,7 @@
     name: 'FlowFormQuestion',
 
     components: {
+      FlowFormDateTimeType,
       FlowFormDateType,
       FlowFormDropdownType,
       FlowFormEmailType,

@@ -8,6 +8,7 @@
 
 export const QuestionType = Object.freeze({
   Date: 'FlowFormDateType',
+  DateTime: 'FlowFormDateTimeType',
   Dropdown: 'FlowFormDropdownType',
   Email: 'FlowFormEmailType',
   File: 'FlowFormFileType',

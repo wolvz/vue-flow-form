@@ -407,6 +407,7 @@ header.vff-header svg.f-logo {
 .vff input[type="url"],
 .vff input[type="password"],
 .vff input[type="date"],
+.vff input[type="datetime-local"],
 .vff textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -441,6 +442,7 @@ header.vff-header svg.f-logo {
 .vff .f-full-width input[type="url"],
 .vff .f-full-width input[type="password"],
 .vff .f-full-width input[type="date"],
+.vff .f-full-width input[type="datetime-local"],
 .vff .f-full-width input[type="file"],
 .vff .f-full-width textarea,
 .vff .f-full-width span.faux-form {
@@ -511,6 +513,11 @@ header.vff-header svg.f-logo {
 }
 
 .vff.vff-is-ios input[type="date"] {
+  height: 32px;
+  display: block;
+}
+
+.vff.vff-is-ios input[type="datetime-local"] {
   height: 32px;
   display: block;
 }
@@ -1073,6 +1080,7 @@ header.vff-header svg.f-logo {
   .vff input[type="url"],
   .vff input[type="password"],
   .vff input[type="date"],
+  .vff input[type="datetime-local"],
   .vff input[type="file"],
   .vff textarea {
     font-size: .78em;
@@ -1131,6 +1139,7 @@ header.vff-header svg.f-logo {
   .vff input[type="url"],
   .vff input[type="password"],
   .vff input[type="date"],
+  .vff input[type="datetime-local"],
   .vff input[type="file"],
   .vff textarea {
     line-height: 1.4;
