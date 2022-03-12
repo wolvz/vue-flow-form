@@ -37,6 +37,7 @@ export default class LanguageModel {
     this.errorMaxFileSize = 'File(s) too large. Maximum allowed file size: :size.'
     this.errorMinFiles = 'Too few files added. Minimum allowed files: :min.'
     this.errorMaxFiles = 'Too many files added. Maximum allowed files: :max.'
+    this.errorMinimumDate = 'The minimum date must be: :date.'
 
     Object.assign(this, options || {})
   }

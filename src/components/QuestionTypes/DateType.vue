@@ -18,16 +18,30 @@
       }
     }, 
     methods: {
+      showInvalid() {
+        return this.errorMessage !== null
+      },
       validate() {
-        if (this.question.min && this.dataValue < this.question.min) {
+        let date = Date.parse(this.dataValue);
+
+        if (this.question.min && date < this.question.min) {
+          this.errorMessage = this.language.formatString(this.language.errorMinimumDate, {
+            date: new Date(this.question.min.getTime() + 86400000).toISOString().substring(0, 10)
+          })
           return false
         }
 
-        if (this.question.max && this.dataValue > this.question.max) {
+        if (this.question.max && date > this.question.max) {
           return false
         }
 
-        return !this.question.required || this.hasValue
+        if (this.question.required && !this.hasValue) {
+          return false
+        }
+
+        this.errorMessage = null;
+
+        return true
       }
     }
   }
