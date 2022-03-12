@@ -23,8 +23,6 @@
       },
       validate() {
         let date = Date.parse(this.dataValue);
-        console.log(this.dataValue)
-        console.log(date);
 
         if (this.question.min && date < this.question.min) {
           this.errorMessage = this.language.formatString(this.language.errorMinimumDate, {
