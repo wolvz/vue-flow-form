@@ -13,7 +13,7 @@
           <img v-bind:src="option.imageSrc" v-bind:alt="option.imageAlt">
         </span>
         <div class="f-label-wrap">
-          <span class="f-key">{{ getToggleKey(index) }}</span>
+
           <span v-if="option.choiceLabel()" class="f-label">{{ option.choiceLabel() }}</span>
         </div>
       </li>
@@ -26,7 +26,7 @@
         role="option"
       >
         <div class="f-label-wrap">
-          <span class="f-key" v-if="!editingOther">{{ getToggleKey(question.options.length) }}</span>
+
           <input
             v-if="editingOther"
             v-model="question.other"
@@ -69,60 +69,22 @@
       }
     },
 
-    mounted() {
-      this.addKeyListener()
-    },
 
-    beforeUnmount() {
-      this.removeKeyListener()
-    },
 
     watch: {
       active(value) {
         if (value) {
-          this.addKeyListener()
+
 
           if (this.question.multiple && this.question.answered) {
             this.enterPressed = false
           }
-        } else {
-          this.removeKeyListener()
         }
       }
     },
     
     methods: {
-      addKeyListener() {
-        this.removeKeyListener()
-        document.addEventListener('keyup', this.onKeyListener)
-      },
 
-      removeKeyListener() {
-        document.removeEventListener('keyup', this.onKeyListener)
-      },
-
-      /**
-       * Listens for keyboard events (A, B, C, ...)
-       */
-      onKeyListener($event) {
-        if (this.active && !this.editingOther && $event.key && $event.key.length === 1) {
-          let keyCode = $event.key.toUpperCase().charCodeAt(0)
-
-          if (keyCode >= 65 && keyCode <= 90) {
-            let index = keyCode - 65
-
-            if (index > -1) {
-              let option = this.question.options[index]
-
-              if (option) {
-                this.toggleAnswer(option)
-              } else if (this.question.allowOther && index === this.question.options.length) {
-                this.startEditOther()
-              }
-            }
-          }
-        }
-      },
 
       getLabel(index) {
         return this.language.ariaMultipleChoice.replace(':letter', this.getToggleKey(index))
