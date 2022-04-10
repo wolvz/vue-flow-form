@@ -341,12 +341,12 @@
       },
 
       showHelperText() {
+        if (this.question.type === QuestionType.LongText || this.question.type === QuestionType.MultipleChoice) {
+            return this.question.helpTextShow
+        }
+        
         if (this.question.subtitle) {
           return true
-        }
-
-        if (this.question.type === QuestionType.LongText || this.question.type === QuestionType.MultipleChoice) {
-          return this.question.helpTextShow
         }
 
         return false
