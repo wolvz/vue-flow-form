@@ -34,8 +34,8 @@
 
             <span class="f-help" v-if="question.type === QuestionType.LongText && !isMobile" v-html="question.helpText || language.formatString(language.longTextHelpText)"></span>
 
-            <span class="f-help" v-if="question.type === QuestionType.MultipleChoice && question.multiple">{{ question.helpText || language.multipleChoiceHelpText }}</span>
-            <span class="f-help" v-else-if="question.type === QuestionType.MultipleChoice">{{ question.helpText || language.multipleChoiceHelpTextSingle }}</span>
+            <span class="f-help" v-if="question.type === QuestionType.MultipleChoice && question.multiple && question.helpTextShow">{{ question.helpText || language.multipleChoiceHelpText }}</span>
+            <span class="f-help" v-else-if="question.type === QuestionType.MultipleChoice && question.helpTextShow">{{ question.helpText || language.multipleChoiceHelpTextSingle }}</span>
           </span>
 
           <div v-if="!question.inline" class="f-answer f-full-width">
@@ -341,12 +341,12 @@
       },
 
       showHelperText() {
-        if (this.question.type === QuestionType.LongText || this.question.type === QuestionType.MultipleChoice) {
-            return this.question.helpTextShow
-        }
-        
         if (this.question.subtitle) {
           return true
+        }
+
+        if (this.question.type === QuestionType.LongText || this.question.type === QuestionType.MultipleChoice) {
+          return this.question.helpTextShow
         }
 
         return false
